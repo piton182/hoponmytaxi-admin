@@ -11,8 +11,8 @@ Template.registerHelper('rideModel', () => {
   if (rideBeingEdited) {
     const datetime = moment.unix(rideBeingEdited.datetime.unix)
     rideBeingEdited.date = datetime.format('MM/DD/YYYY');
-    rideBeingEdited.time_h = datetime.hours();
-    rideBeingEdited.time_m = datetime.minutes();
+    rideBeingEdited.time_h = s.pad(datetime.hours(), 2, '0');
+    rideBeingEdited.time_m = s.pad(datetime.minutes(), 2, '0');
     return rideBeingEdited;
   } else {
     return { };

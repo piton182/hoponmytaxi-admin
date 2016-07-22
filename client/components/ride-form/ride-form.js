@@ -79,9 +79,6 @@ Template.ride_form.events({
       datetime: {
         unix: moment(faker.date.recent()).unix(),
       },
-      // date: moment(datetime).format("MM/DD/YYYY"),
-      // time_h: s.pad(moment(datetime).hours(), 2, '0'),
-      // time_m: s.pad(moment(datetime).minutes(), 2, '0'),
       from: faker.address.streetAddress(),
       to: {
         _id: randomAirport._id,

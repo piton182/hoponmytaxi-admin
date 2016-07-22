@@ -7,8 +7,8 @@
   <form class="form-ride">
     <table>
       <tr>
-        <td><label>Name</label></td>
-        <td>
+        <td><label>Name<span style="color: red">*</span></label></td>
+        <td style="padding: 2px 0 2px 0">
           <div class="input-group input-group-sm">
             <input
               type="text"
@@ -16,13 +16,13 @@
               placeholder="John Smith"
               value={{model.name}}
               class="form-control"
-              style="width: 172px" />
+              style="width: 175px" />
           </div>
         </td>
       </tr>
       <tr>
-        <td><label>Phone</label></td>
-        <td>
+        <td><label>Phone<span style="color: red">*</span></label></td>
+        <td style="padding: 2px 0 2px 0">
           <div class="input-group input-group-sm">
             <!-- TODO: phone is not a text really... -->
             <input
@@ -31,13 +31,13 @@
               placeholder="0700900123"
               value={{model.phone}}
               class="form-control"
-              style="width: 172px" />
+              style="width: 175px" />
           </div>
         </td>
       </tr>
       <tr>
-        <td><label>Date/time</label></td>
-        <td>
+        <td><label>Date/time<span style="color: red">*</span></label></td>
+        <td style="padding: 2px 0 2px 0">
           <table>
             <tr>
               <td>
@@ -49,15 +49,13 @@
                     placeholder="mm/dd/yyyy"
                     value="{{model.date}}"
                     class="form-control"
-                    style="width: 87px">
+                    style="width: 90px">
                 </div>
               </td>
               <td style="padding-left: 7px">
                 <div class="input-group input-group-sm">
                   <input
-                    type="number"
-                    min="0"
-                    max="23"
+                    type="text"
                     name="time_h"
                     placeholder="h"
                     value="{{model.time_h}}"
@@ -69,9 +67,7 @@
               <td>
                 <div class="input-group input-group-sm">
                   <input
-                    type="number"
-                    min="0"
-                    max="59"
+                    type="text"
                     name="time_m"
                     placeholder="m"
                     value="{{model.time_m}}"
@@ -84,8 +80,8 @@
         </td>
       </tr>
       <tr>
-        <td><label>From</label></td>
-        <td>
+        <td><label>From<span style="color: red">*</span></label></td>
+        <td style="padding: 2px 0 2px 0">
           <div class="input-group input-group-sm">
             <input
               type="text"
@@ -93,15 +89,15 @@
               value="{{model.from}}"
               placeholder="Address"
               class="form-control"
-              style="width: 172px" />
+              style="width: 175px" />
           </div>
         </td>
       </tr>
       <tr>
-        <td><label>To</label></td>
-        <td>
+        <td><label>To<span style="color: red">*</span></label></td>
+        <td style="padding: 2px 0 2px 0">
           <div class="input-group input-group-sm">
-            <select name="to" class="form-control" style="width: 172px">
+            <select name="to" class="form-control" style="width: 175px">
               <option value="null">-- Select --</option>
               {{#each airport in airports}}
                 <option value="{{airport._id}}" selected="{{isAirportSelected airport}}">{{airport.name}}</option>
