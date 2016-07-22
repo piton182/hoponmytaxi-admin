@@ -3,16 +3,19 @@
 </head>
 
 <body>
-  <div style="border: 5px solid red;">
+  <!-- <div style="border: 5px solid red;"> -->
+  <div>
     <table>
       <tr>
-        <td valign="top" style="border: 5px solid yellow;">
+        <!-- <td valign="top" style="border: 5px solid yellow;"> -->
+        <td valign="top">
           {{> ride_form model=rideModel callbacks=rideCRUDCallbacks isEditingMode=isRideFormEditingMode }}
         </td>
         <td style="width: 30px">
 
         </td>
-        <td style="border: 5px solid blue;">
+        <!-- <td style="border: 5px solid blue;"> -->
+        <td>
           {{> ride_list callbacks=rideCRUDCallbacks }}
         </td>
       </tr>
