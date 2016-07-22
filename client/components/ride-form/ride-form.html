@@ -1,0 +1,137 @@
+<template name="ride_form">
+  {{#if isRideFormEditingMode}}
+    <h3>Editing ride #{{model.bkn_ref}}</h3>
+  {{else}}
+    <h3>New Ride</h3>
+  {{/if}}
+  <form class="form-ride">
+    <table>
+      <tr>
+        <td><label>Name</label></td>
+        <td>
+          <div class="input-group input-group-sm">
+            <input
+              type="text"
+              name="name"
+              placeholder="John Smith"
+              value={{model.name}}
+              class="form-control"
+              style="width: 172px" />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Phone</label></td>
+        <td>
+          <div class="input-group input-group-sm">
+            <!-- TODO: phone is not a text really... -->
+            <input
+              type="text"
+              name="phone"
+              placeholder="0700900123"
+              value={{model.phone}}
+              class="form-control"
+              style="width: 172px" />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Date/time</label></td>
+        <td>
+          <table>
+            <tr>
+              <td>
+                <div class="input-group input-group-sm">
+                  <input
+                    type="text"
+                    id="my-datepicker"
+                    name="date"
+                    placeholder="mm/dd/yyyy"
+                    value="{{model.date}}"
+                    class="form-control"
+                    style="width: 87px">
+                </div>
+              </td>
+              <td style="padding-left: 7px">
+                <div class="input-group input-group-sm">
+                  <input
+                    type="number"
+                    min="0"
+                    max="23"
+                    name="time_h"
+                    placeholder="h"
+                    value="{{model.time_h}}"
+                    class="form-control"
+                    style="width: 35px" />
+                </div>
+              </td>
+              <td style="padding: 0 2px 0 2px">:</td>
+              <td>
+                <div class="input-group input-group-sm">
+                  <input
+                    type="number"
+                    min="0"
+                    max="59"
+                    name="time_m"
+                    placeholder="m"
+                    value="{{model.time_m}}"
+                    class="form-control"
+                    style="width: 35px"/>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><label>From</label></td>
+        <td>
+          <div class="input-group input-group-sm">
+            <input
+              type="text"
+              name="from"
+              value="{{model.from}}"
+              placeholder="Address"
+              class="form-control"
+              style="width: 172px" />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label>To</label></td>
+        <td>
+          <div class="input-group input-group-sm">
+            <select name="to" class="form-control" style="width: 172px">
+              <option value="null">-- Select --</option>
+              {{#each airport in airports}}
+                <option value="{{airport._id}}" selected="{{isAirportSelected airport}}">{{airport.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="height: 10px">
+
+        </td>
+      </tr>
+      <tr>
+        <td nowrap>
+          {{#unless isRideFormEditingMode}}
+            <a href="#" class="js-fake">Fake one</a>
+          {{/unless}}
+        </td>
+        <td style="text-align: right">
+          {{#if isRideFormEditingMode}}
+            <a href="#" class="js-cancel">Cancel</a>
+            <input type="submit" value="Save" class="btn btn-success btn-sm" />
+          {{else}}
+            <a href="#" class="js-clear">Clear</a>
+            <input type="submit" value="Submit" class="btn btn-success btn-sm" />
+          {{/if}}
+        </td>
+      </tr>
+    </table>
+  </form>
+  {{t}}
+</template>

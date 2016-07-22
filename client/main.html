@@ -1,0 +1,21 @@
+<head>
+  <title>form-lab</title>
+</head>
+
+<body>
+  <div style="border: 5px solid red;">
+    <table>
+      <tr>
+        <td valign="top" style="border: 5px solid yellow;">
+          {{> ride_form model=rideModel callbacks=rideCRUDCallbacks isEditingMode=isRideFormEditingMode }}
+        </td>
+        <td style="width: 30px">
+
+        </td>
+        <td style="border: 5px solid blue;">
+          {{> ride_list callbacks=rideCRUDCallbacks }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>

@@ -1,0 +1,53 @@
+<template name="ride_list">
+  <h3>Rides</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th nowrap>bkn #</th>
+        <th>Name</th>
+        <th>Date/Time</th>
+        <th>From</th>
+        <th>To</th>
+        <th nowrap>Co-rider</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if isRidesEmpty}}
+        <span style="color: red">No rides</span>
+      {{/if}}
+      {{#each rides}}
+          <tr>
+            <td nowrap>{{bkn_ref}}</td>
+            <td nowrap>{{name}}<br/><img src="images/phone-icon.png" style="width: 16px; height: 16px;"/> {{phone}}</td>
+            <td nowrap>{{formatDate datetime.unix}}</td>
+            <td nowrap>{{from}}</td>
+            <td nowrap>{{to.name}}</td>
+            <td nowrap>{{coriders}}</td>
+            <td nowrap>
+              {{#if editing}}
+                {{#if editingThisRide}}
+                  <span>editing...</span>
+                {{/if}}
+              {{else}}
+                <a href="#" class="js-edit-ride">Edit</a> | <a href="#" class="js-delete-ride">Delete</a>
+              {{/if}}
+            </td>
+          </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <!-- <table style="width: 300px">
+    {{#each rides}}
+      <tr>
+        <td>
+          name: <a href="#" class="js-ride">{{name}}</a>
+          phone: {{phone}}
+          {{#if isThisRideBeingEdited}}
+            editing...
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </table> -->
+</template>
